@@ -1,0 +1,8 @@
+openai~=1.55.3
+sounddevice~=0.5.1
+soundfile~=0.12.1
+pillow~=11.0.0
+playsound~=1.2.2
+pydub~=0.25.1
+numpy ~=2.1.2
+pyinstaller ~= 6.11.1
