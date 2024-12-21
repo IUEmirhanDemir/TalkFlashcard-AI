@@ -1,4 +1,3 @@
-
 import tkinter as tk
 from tkinter import messagebox
 from tkinter import ttk
@@ -8,7 +7,20 @@ from utils.mousewheel_scroll_util import bind_mousewheel
 from utils.window_utils import center_window
 
 class GenerateFlashcardsController:
+    """
+    Controller to manage the generation of flashcards using ChatGPT.
+    Handles the creation of the flashcard generation popup, interaction with ChatGPT, and display of generated flashcards.
+    """
+
     def __init__(self, main_window, module, chatgpt_service):
+        """
+        Initializes the controller with necessary services and settings.
+
+        Args:
+            main_window (tk.Tk): The main window of the application.
+            module (object): The module for which flashcards will be generated.
+            chatgpt_service (object): The ChatGPT service to generate flashcards.
+        """
         self.main_window = main_window
         self.module = module
         self.db_service = self.main_window.db_service
@@ -16,6 +28,10 @@ class GenerateFlashcardsController:
         self.generate_flashcards_view = None
 
     def open_generate_flashcards_popup(self):
+        """
+        Opens a popup for generating flashcards using ChatGPT. Displays a text input area and handles the process of
+        generating flashcards asynchronously.
+        """
         if not self.chatgpt_service:
             messagebox.showerror("Fehler", "ChatGPT API-Key ist nicht gesetzt.")
             return
@@ -33,6 +49,10 @@ class GenerateFlashcardsController:
         text_section_entry.pack(pady=5)
 
         def generate_flashcards():
+            """
+            Generates flashcards by passing the entered text to the ChatGPT service.
+            Displays progress and handles any errors during the generation process.
+            """
             text_section = text_section_entry.get("1.0", tk.END).strip()
             if text_section:
                 loading_popup = tk.Toplevel(self.generate_flashcards_view)
@@ -99,6 +119,12 @@ class GenerateFlashcardsController:
         cancel_button.pack(side=tk.RIGHT, padx=10)
 
     def show_flashcards_editor(self, flashcards):
+        """
+        Displays a popup where the user can edit, delete, or save the generated flashcards.
+
+        Args:
+            flashcards (list): List of generated flashcards to be displayed and edited.
+        """
         self.generate_flashcards_view.destroy()
         editor_view = tk.Toplevel(self.main_window)
         editor_view.title("Generierte Karteikarten")
@@ -147,6 +173,9 @@ class GenerateFlashcardsController:
             answer_entry.pack()
 
             def delete_flashcard(fc=fc, frame=frame):
+                """
+                Deletes the selected flashcard from the list and the UI.
+                """
                 flashcards.remove(fc)
                 frame.destroy()
 
@@ -162,6 +191,9 @@ class GenerateFlashcardsController:
         button_frame.pack(fill="x")
 
         def save_all():
+            """
+            Saves all edited flashcards to the database.
+            """
             try:
                 for fc in flashcards:
                     question = fc['question_entry'].get("1.0", tk.END).strip()

@@ -6,3 +6,4 @@ playsound~=1.2.2
 pydub~=0.25.1
 numpy ~=2.1.2
 pyinstaller ~= 6.11.1
+pdoc ~= 15.0.1

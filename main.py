@@ -1,4 +1,3 @@
-
 import tkinter as tk
 from tkinter import messagebox
 
@@ -10,19 +9,25 @@ from views.module_view import ModuleView
 
 import ssl
 
-
 from utils.window_utils import center_window
 
 class MainWindow(tk.Tk):
+    """
+    The main window of the application, responsible for managing the GUI and the communication
+    between different views, such as the main view and the module view.
+    """
+
     def __init__(self):
+        """
+        Initializes the main window, setting up services, frames, and UI elements.
+
+        Sets up SSL context, API key handling, and initializes the database connection.
+        """
         super().__init__()
         self.title("Karteikarten App")
         self.geometry("800x800")
         self.eval('tk::PlaceWindow . center')
         ssl._create_default_https_context = ssl._create_unverified_context
-
-
-
 
         self.config_service = ConfigService()
 
@@ -41,6 +46,7 @@ class MainWindow(tk.Tk):
 
         self.frames = {}
 
+        # Creating and adding views to the window
         for F in (MainView, ModuleView):
             frame = F(parent=container, controller=self)
             self.frames[F.__name__] = frame
@@ -51,28 +57,49 @@ class MainWindow(tk.Tk):
         self.create_api_key_button()
 
     def refresh_module_view(self, module):
+        """
+        Refreshes the module view with the selected module and its flashcards.
+
+        Args:
+            module (object): The module to be displayed in the module view.
+        """
         frame = self.frames["ModuleView"]
         frame.set_module(module)
         frame.display_flashcards()
 
     def show_frame(self, frame_name):
+        """
+        Displays the specified frame.
+
+        Args:
+            frame_name (str): The name of the frame to be displayed.
+        """
         frame = self.frames[frame_name]
         frame.tkraise()
 
     def open_module_view(self, module):
+        """
+        Opens the module view for the selected module.
+
+        Args:
+            module (object): The module to be displayed in the module view.
+        """
         module_view = self.frames["ModuleView"]
         module_view.set_module(module)
         module_view.display_flashcards()
         self.show_frame("ModuleView")
 
-
-
-
     def on_closing(self):
+        """
+        Handles the closing of the main window, closing database connection and destroying the window.
+        """
         self.db_service.close_connection()
         self.destroy()
 
     def create_api_key_button(self):
+        """
+        Creates a button in the bottom frame for managing the ChatGPT API key.
+        """
         api_key_frame = tk.Frame(self, bg="#615e5e")
         api_key_frame.pack(side="bottom", anchor="w", fill="x")
 
@@ -88,13 +115,33 @@ class MainWindow(tk.Tk):
         )
         api_key_button.pack(side="left", padx=5, pady=5)
 
+
+      # Powered By OpenAI Label
+        powered_by_label = tk.Label(
+            api_key_frame,
+            text="Powered By OpenAi API (Whisper 1, TTTS, gpt-4o-mini)",
+            bg="#615e5e",
+            fg="#ffffff",
+            anchor="e"
+        )
+        powered_by_label.pack(side="right", padx=10, pady=5)
+
     def get_api_key_status(self):
+        """
+        Checks if the ChatGPT API key is set and returns a status message.
+
+        Returns:
+            str: The status of the API key.
+        """
         if self.chatgpt_service and self.chatgpt_service.api_key:
             return "ChatGPT API Key gesetzt."
         else:
             return "ChatGPT API Key nicht gesetzt."
 
     def open_api_key_popup(self):
+        """
+        Opens a popup window to input the ChatGPT API key.
+        """
         popup = tk.Toplevel(self)
         popup.title("ChatGPT API Key hinzufügen")
         popup.geometry("400x200")
@@ -109,6 +156,9 @@ class MainWindow(tk.Tk):
         api_key_entry.pack(pady=5)
 
         def save_api_key():
+            """
+            Saves the entered API key and sets it for both the config and ChatGPT services.
+            """
             api_key = api_key_entry.get().strip()
             if api_key:
                 try:

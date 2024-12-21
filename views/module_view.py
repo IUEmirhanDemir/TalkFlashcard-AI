@@ -1,4 +1,3 @@
-
 import tkinter as tk
 from tkinter import ttk, messagebox
 from PIL import Image, ImageTk
@@ -16,7 +15,19 @@ from views.normal_mode_view import NormalModeView
 
 
 class ModuleView(tk.Frame):
+    """
+    This class represents the view for a specific module, displaying its flashcards
+    and options for interacting with the module in various modes.
+    """
+
     def __init__(self, parent, controller):
+        """
+        Initializes the view for the module, setting up necessary widgets.
+
+        Args:
+            parent (tk.Widget): The parent widget (window).
+            controller (object): The main controller of the application.
+        """
         super().__init__(parent)
         self.controller = controller
         self.db_service = self.controller.db_service
@@ -28,6 +39,16 @@ class ModuleView(tk.Frame):
         self.create_widgets()
 
     def truncate_text(self, text, max_length):
+        """
+        Truncates the given text to the specified length, ensuring no line breaks.
+
+        Args:
+            text (str): The text to be truncated.
+            max_length (int): The maximum length of the text.
+
+        Returns:
+            str: The truncated text.
+        """
         text = text.replace('\n', ' ').replace('\r', ' ')
         text = ' '.join(text.split())
         if len(text) > max_length:
@@ -35,6 +56,9 @@ class ModuleView(tk.Frame):
         return text
 
     def create_widgets(self):
+        """
+        Creates and arranges all the widgets for displaying the module and its flashcards.
+        """
         label_frame = tk.Frame(self)
         label_frame.pack(pady=10, anchor="n")
 
@@ -125,19 +149,30 @@ class ModuleView(tk.Frame):
         bind_right_click(self.flashcards_tree, self.on_right_click)
 
     def set_module(self, module):
+        """
+        Sets the module for this view and updates the display.
+
+        Args:
+            module (object): The module to be set.
+        """
         self.module = module
         self.module_controller.set_module(module)
         self.update_module_label()
         self.display_flashcards()
 
     def update_module_label(self):
+        """
+        Updates the label showing the current module name.
+        """
         if self.module:
             self.module_name_label.config(text=f"{self.module.name}")
         else:
             self.module_name_label.config(text="")
 
     def toggle_flashcards_options(self):
-
+        """
+        Toggles the visibility of the flashcards options frame.
+        """
         if not self.flashcards_options_visible:
             self.flashcards_options_frame.pack(
                 padx=15, pady=10, fill='both', expand=True)
@@ -147,7 +182,9 @@ class ModuleView(tk.Frame):
             self.flashcards_options_visible = False
 
     def create_flashcards_options(self):
-
+        """
+        Creates options for adding or generating flashcards.
+        """
         assets_path = os.path.join(os.path.dirname(__file__), '..', 'assets')
         add_flashcards_logo_path = os.path.join(
             assets_path, 'add_flashcards.png')
@@ -201,6 +238,9 @@ class ModuleView(tk.Frame):
             side="right", expand=True, fill='both', padx=10, pady=10)
 
     def open_generate_flashcards(self):
+        """
+        Opens the popup for generating flashcards using ChatGPT.
+        """
         print("open_generate_flashcards aufgerufen")
         if self.module and self.controller.chatgpt_service:
             print("Module und ChatGPTService vorhanden")
@@ -217,6 +257,9 @@ class ModuleView(tk.Frame):
             )
 
     def display_flashcards(self):
+        """
+        Displays all flashcards for the current module in the treeview.
+        """
         for item in self.flashcards_tree.get_children():
             self.flashcards_tree.delete(item)
 
@@ -237,7 +280,9 @@ class ModuleView(tk.Frame):
                 "", tk.END, iid="no_flashcards", values=("Keine Karteikarten vorhanden.", ""))
 
     def on_right_click(self, event):
-
+        """
+        Displays the right-click context menu for deleting selected flashcards.
+        """
         selected_items = self.flashcards_tree.selection()
         if selected_items:
             context_menu = tk.Menu(self, tearoff=0)
@@ -248,7 +293,9 @@ class ModuleView(tk.Frame):
             pass
 
     def delete_selected_flashcards(self):
-
+        """
+        Deletes selected flashcards after confirmation.
+        """
         selected_items = self.flashcards_tree.selection()
         if selected_items:
             confirm = messagebox.askyesno(
@@ -271,7 +318,9 @@ class ModuleView(tk.Frame):
                 "Warnung", "Keine Karteikarten ausgewählt.")
 
     def on_double_click(self, event):
-
+        """
+        Edits the selected flashcard on a double-click event.
+        """
         selected_item = self.flashcards_tree.selection()
         if selected_item:
             selected_item_id = selected_item[0]
@@ -292,6 +341,9 @@ class ModuleView(tk.Frame):
                 return
 
     def start_interactive_mode(self):
+        """
+        Starts the interactive learning mode if flashcards are available.
+        """
         if self.module:
             if not check_flashcard_existence(self.db_service, self.module.id):
                 messagebox.showinfo(
@@ -306,6 +358,9 @@ class ModuleView(tk.Frame):
             messagebox.showwarning("Warnung", "Kein Modul ausgewählt.")
 
     def start_normal_mode(self):
+        """
+        Starts the normal learning mode if flashcards are available.
+        """
         if self.module:
             if not check_flashcard_existence(self.db_service, self.module.id):
                 messagebox.showinfo(
