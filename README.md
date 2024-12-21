@@ -86,6 +86,8 @@ pip install -r requirements.txt
 <a name="projekt-ausf%C3%BChren"></a>
 ## Projekt ausführen
 
+Google Drive link: https://drive.google.com/file/d/18kKbDBaskcZutihE61XuHHzSXuLQ7cff/view?usp=sharing
+
 ### Starten des Programms
 
 Führe das Hauptskript aus, um das Programm zu starten:
