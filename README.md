@@ -120,18 +120,6 @@ python3 main.py --config config.yaml
 
 ---
 
-<a name="n%C3%BCtzliche-ressourcen"></a>
-## Nützliche Ressourcen
-
-- [Python Offizielle Dokumentation](https://docs.python.org/3/)
-- [GitHub Markdown Guide](https://guides.github.com/features/mastering-markdown/)
-- [Homebrew für macOS](https://brew.sh/)
-- [Pip Paketmanagement](https://pip.pypa.io/en/stable/)
-
-Falls Probleme auftreten, kannst du uns über die Repository-Issues erreichen oder die Community auf Stack Overflow um Hilfe bitten.
-
----
-
 <a name="english-version"></a>
 ## English Version
 
