@@ -1,3 +1,4 @@
+
 ## Inhaltsverzeichnis
 1. [Sprache wechseln](#sprache-wechseln)
     - [Englische Version](#english-version)
@@ -28,7 +29,7 @@
 - **Python-Version**: Mindestens Python 3.
 - Abhängigkeiten: Siehe `requirements.txt`.
 - Unterstützte Betriebssysteme: Linux, macOS, Windows.
-- Internetverbindung: Für das Klonen des Repositories und das Installieren von Abhängigkeiten notwendig. Auch für den interaktiven Lernmodus und das Generieren von Karteikarten, ist zwgend eine Internetverbindung erforderlich, da es die OpenAI API verwendet.
+- Internetverbindung: Für das Klonen des Repositories und das Installieren von Abhängigkeiten notwendig. Auch für den interaktiven Lernmodus und das Generieren von Karteikarten, ist zwingend eine Internetverbindung erforderlich, da es die OpenAI API verwendet.
 
 ### Python installieren
 
@@ -50,6 +51,7 @@ python --version
 ### Repository klonen
 
 Das Klonen des Repositories ist der erste Schritt, um das Projekt lokal einzurichten.
+
 
 ### Virtuelle Umgebung erstellen
 
@@ -78,7 +80,7 @@ Erstelle eine virtuelle Umgebung, um die Abhängigkeiten des Projekts sauber zu 
 - **Windows**:
 
   ```bash
-  venv\Scriptsctivate
+  venv\Scripts\activate
   ```
 
 Installiere anschließend die Abhängigkeiten mit:
@@ -148,10 +150,10 @@ Falls Probleme auftreten, kannst du uns über die Repository-Issues erreichen od
 - Dependencies: See `requirements.txt`.
 - Supported OS: Linux, macOS, Windows.
 - Internet Connection: Needed for cloning the repository and installing dependencies. An internet connection is also required for the interactive learning mode and generating flashcards, as it uses the OpenAI API.
+
 ### Setup Instructions
 
 1. Clone the repository:
-
 
 2. Create a virtual environment:
 
@@ -178,7 +180,7 @@ Falls Probleme auftreten, kannst du uns über die Repository-Issues erreichen od
    - **Windows**:
 
      ```bash
-     venv\Scriptsctivate
+     venv\Scripts\activate
      ```
 
 4. Install dependencies:
@@ -197,4 +199,3 @@ Falls Probleme auftreten, kannst du uns über die Repository-Issues erreichen od
 
 7. For more help, see the [Useful Resources](#n%C3%BCtzliche-ressourcen) section.
 
----
