@@ -9,7 +9,6 @@
     - [Starten des Programms](#starten-des-programms)
     - [Ausführen über eine ausführbare Datei](#ausf%C3%BChren-%C3%BCber-eine-ausf%C3%BChrbare-datei)
 4. [English](#english-version)
-5. [Nützliche Ressourcen](#n%C3%BCtzliche-ressourcen)
 
 ---
 
@@ -176,5 +175,5 @@ python3 main.py --config config.yaml
 
 6. To execute a binary file, follow the OS-specific instructions above.
 
-7. For more help, see the [Useful Resources](#n%C3%BCtzliche-ressourcen) section.
+
 
