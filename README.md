@@ -1,7 +1,3 @@
-# Projektname
-
-Willkommen bei **Projektname**! Dieses Projekt wurde mit Python entwickelt und erfordert mindestens **Python 3**. In dieser README findest du alles, was du wissen musst, um das Projekt zu installieren und auszuführen. Die Anleitung ist für verschiedene Betriebssysteme optimiert. Zusätzlich findest du hilfreiche Tipps und weiterführende Links, die den Einstieg erleichtern.
-
 ## Inhaltsverzeichnis
 1. [Sprache wechseln](#sprache-wechseln)
     - [Englische Version](#english-version)
@@ -32,8 +28,7 @@ Willkommen bei **Projektname**! Dieses Projekt wurde mit Python entwickelt und e
 - **Python-Version**: Mindestens Python 3.
 - Abhängigkeiten: Siehe `requirements.txt`.
 - Unterstützte Betriebssysteme: Linux, macOS, Windows.
-- Speicherplatz: Mindestens 200 MB freier Speicherplatz erforderlich.
-- Internetverbindung: Für das Klonen des Repositories und das Installieren von Abhängigkeiten notwendig.
+- Internetverbindung: Für das Klonen des Repositories und das Installieren von Abhängigkeiten notwendig. Auch für den interaktiven Lernmodus und das Generieren von Karteikarten, ist zwgend eine Internetverbindung erforderlich, da es die OpenAI API verwendet.
 
 ### Python installieren
 
@@ -55,11 +50,6 @@ python --version
 ### Repository klonen
 
 Das Klonen des Repositories ist der erste Schritt, um das Projekt lokal einzurichten.
-
-```bash
-git clone https://github.com/username/projektname.git
-cd projektname
-```
 
 ### Virtuelle Umgebung erstellen
 
@@ -109,13 +99,13 @@ pip install -r requirements.txt
 Führe das Hauptskript aus, um das Programm zu starten:
 
 ```bash
-python main.py
+python3 main.py
 ```
 
 Das Skript startet das Hauptprogramm und gibt relevante Informationen in der Konsole aus. Optional kannst du bestimmte Parameter übergeben, z. B.:
 
 ```bash
-python main.py --config config.yaml
+python3 main.py --config config.yaml
 ```
 
 ### Ausführen über eine ausführbare Datei
@@ -125,8 +115,8 @@ python main.py --config config.yaml
   Navigiere in das Verzeichnis der ausführbaren Datei und mache sie ggf. ausführbar:
 
   ```bash
-  chmod +x programmname
-  ./programmname
+  chmod +x main
+  ./main
   ```
 
   > Hinweis: Möglicherweise musst du Sicherheitswarnungen akzeptieren.
@@ -157,17 +147,11 @@ Falls Probleme auftreten, kannst du uns über die Repository-Issues erreichen od
 - **Python Version**: At least Python 3.
 - Dependencies: See `requirements.txt`.
 - Supported OS: Linux, macOS, Windows.
-- Disk Space: At least 200 MB of free space required.
-- Internet Connection: Needed for cloning the repository and installing dependencies.
-
+- Internet Connection: Needed for cloning the repository and installing dependencies. An internet connection is also required for the interactive learning mode and generating flashcards, as it uses the OpenAI API.
 ### Setup Instructions
 
 1. Clone the repository:
 
-   ```bash
-   git clone https://github.com/username/projektname.git
-   cd projektname
-   ```
 
 2. Create a virtual environment:
 
@@ -206,7 +190,7 @@ Falls Probleme auftreten, kannst du uns über die Repository-Issues erreichen od
 5. Run the program:
 
    ```bash
-   python main.py
+   python3 main.py
    ```
 
 6. To execute a binary file, follow the OS-specific instructions above.
@@ -214,71 +198,3 @@ Falls Probleme auftreten, kannst du uns über die Repository-Issues erreichen od
 7. For more help, see the [Useful Resources](#n%C3%BCtzliche-ressourcen) section.
 
 ---
-
-<a name="deutsche-version"></a>
-## Deutsche Version
-
-### Systemvoraussetzungen
-
-- **Python-Version**: Mindestens Python 3.
-- Abhängigkeiten: Siehe `requirements.txt`.
-- Unterstützte Betriebssysteme: Linux, macOS, Windows.
-- Speicherplatz: Mindestens 200 MB freier Speicherplatz erforderlich.
-- Internetverbindung: Für das Klonen des Repositories und das Installieren von Abhängigkeiten notwendig.
-
-### Einrichtung
-
-1. Klone das Repository:
-
-   ```bash
-   git clone https://github.com/username/projektname.git
-   cd projektname
-   ```
-
-2. Erstelle eine virtuelle Umgebung:
-
-   - **Linux/macOS**:
-
-     ```bash
-     python3 -m venv venv
-     ```
-
-   - **Windows**:
-
-     ```bash
-     python -m venv venv
-     ```
-
-3. Aktiviere die virtuelle Umgebung:
-
-   - **Linux/macOS**:
-
-     ```bash
-     source venv/bin/activate
-     ```
-
-   - **Windows**:
-
-     ```bash
-     venv\Scriptsctivate
-     ```
-
-4. Installiere die Abhängigkeiten:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-5. Starte das Programm:
-
-   ```bash
-   python main.py
-   ```
-
-6. Führe eine ausführbare Datei gemäß den oben angegebenen Schritten aus.
-
-7. Weitere Hilfe findest du im Abschnitt [Nützliche Ressourcen](#n%C3%BCtzliche-ressourcen).
-
----
-
-Viel Erfolg mit **Projektname**! Sollten Fragen oder Probleme auftreten, wende dich gerne an uns über die Repository-Issues oder konsultiere die oben genannten Ressourcen.
