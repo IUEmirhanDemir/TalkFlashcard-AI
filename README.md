@@ -5,7 +5,7 @@
     - [Repository klonen](#repository-klonen)
     - [Virtuelle Umgebung erstellen](#virtuelle-umgebung-erstellen)
     - [Virtuelle Umgebung aktivieren](#virtuelle-umgebung-aktivieren)
-3. [Projekt ausführen](#projekt-ausf%C3%BChren)
+3. [Projekt ausführen (Optional: ausführbare Datei nutzen)](#projekt-ausf%C3%BChren)
     - [Starten des Programms](#starten-des-programms)
     - [Ausführen über eine ausführbare Datei](#ausf%C3%BChren-%C3%BCber-eine-ausf%C3%BChrbare-datei)
 4. [English](#english-version)
