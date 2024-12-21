@@ -13,13 +13,6 @@
 
 ---
 
-<a name="sprache-wechseln"></a>
-### Sprache wechseln
-
-- Für die [**Englische Version**](#english-version), klicke hier.
-- Für die [**Deutsche Version**](#deutsche-version), lies weiter.
-
----
 
 <a name="systemvoraussetzungen"></a>
 ## Systemvoraussetzungen
