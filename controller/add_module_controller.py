@@ -32,7 +32,7 @@ class AddModuleController:
         Also handles the positioning and UI elements.
         """
         popup = tk.Toplevel(self.main_window)
-        popup.title("Add New Module")  # Title of the popup window
+        popup.title("Neues Modul hinzufügen")  # Title of the popup window
         popup.geometry("400x150")  # Window size
         popup.transient(self.main_window)  # Make popup transient
         popup.grab_set()  # Grab input for this window
@@ -67,8 +67,8 @@ class AddModuleController:
         button_frame = tk.Frame(popup)
         button_frame.pack(pady=10)
 
-        save_button = tk.Button(button_frame, text="Add and Save", command=save_module, width=15, bg="#4CAF50", fg="black")
+        save_button = tk.Button(button_frame, text="Speichern", command=save_module, width=15, bg="#4CAF50", fg="black")
         save_button.pack(side=tk.LEFT, padx=10)
 
-        cancel_button = tk.Button(button_frame, text="Cancel", command=popup.destroy, width=15, bg="#f44336", fg="black")
+        cancel_button = tk.Button(button_frame, text="Abbrechen", command=popup.destroy, width=15, bg="#f44336", fg="black")
         cancel_button.pack(side=tk.RIGHT, padx=10)
