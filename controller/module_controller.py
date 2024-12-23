@@ -36,7 +36,7 @@ class ModuleController:
         The user can enter a question and an answer for the new flashcard.
         """
         popup = tk.Toplevel(self.main_window)
-        popup.title("Add Flashcard")  # Popup title
+        popup.title("Karteikarten hinzufügen")  # Popup title
         popup.geometry("600x500")  # Set size of the popup window
         popup.transient(self.main_window)  # Make popup transient
         popup.grab_set()  # Grab the input for this window
@@ -47,12 +47,12 @@ class ModuleController:
         position_down = int(self.main_window.winfo_y() + (self.main_window.winfo_height() / 2 - window_height / 2))
         popup.geometry("+{}+{}".format(position_right, position_down))
 
-        question_label = tk.Label(popup, text="Question:", font=("Arial", 12))
+        question_label = tk.Label(popup, text="Frage:", font=("Arial", 12))
         question_label.pack(pady=5)
         question_text = tk.Text(popup, width=60, height=5, font=("Arial", 12))
         question_text.pack(pady=5)
 
-        answer_label = tk.Label(popup, text="Answer:", font=("Arial", 12))
+        answer_label = tk.Label(popup, text="Antwort:", font=("Arial", 12))
         answer_label.pack(pady=5)
         answer_text = tk.Text(popup, width=60, height=10, font=("Arial", 12))
         answer_text.pack(pady=5)
@@ -76,10 +76,10 @@ class ModuleController:
         button_frame = tk.Frame(popup)
         button_frame.pack(pady=20)
 
-        save_button = tk.Button(button_frame, text="Save", command=save_flashcard, width=15, bg="#4CAF50", fg="black")
+        save_button = tk.Button(button_frame, text="Speichern", command=save_flashcard, width=15, bg="#4CAF50", fg="black")
         save_button.pack(side=tk.LEFT, padx=10)
 
-        cancel_button = tk.Button(button_frame, text="Cancel", command=popup.destroy, width=15, bg="#f44336", fg="black")
+        cancel_button = tk.Button(button_frame, text="Abbrechen", command=popup.destroy, width=15, bg="#f44336", fg="black")
         cancel_button.pack(side=tk.RIGHT, padx=10)
 
     def edit_flashcard(self, flashcard):
@@ -133,8 +133,8 @@ class ModuleController:
         button_frame = tk.Frame(popup)
         button_frame.pack(pady=20)
 
-        save_button = tk.Button(button_frame, text="Save", command=save_edit, width=15, bg="#4CAF50", fg="black")
+        save_button = tk.Button(button_frame, text="Speichern", command=save_edit, width=15, bg="#4CAF50", fg="black")
         save_button.pack(side=tk.LEFT, padx=10)
 
-        cancel_button = tk.Button(button_frame, text="Cancel", command=popup.destroy, width=15, bg="#f44336", fg="black")
+        cancel_button = tk.Button(button_frame, text="Abbrechen", command=popup.destroy, width=15, bg="#f44336", fg="black")
         cancel_button.pack(side=tk.RIGHT, padx=10)
