@@ -12,6 +12,7 @@
 
 ---
 
+PDoc Html =>  https://iuemirhandemir.github.io/TalkFlashcard-AI/
 
 <a name="systemvoraussetzungen"></a>
 ## Systemvoraussetzungen
